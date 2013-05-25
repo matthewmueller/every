@@ -42,7 +42,6 @@ function every(str, fn) {
   function reset() {
     now = new Date;
     until = d - now;
-    console.log(until);
     setTimeout(run, until);
   }
 }
