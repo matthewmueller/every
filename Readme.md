@@ -1,15 +1,34 @@
 
 # every
 
-  human-friendly intervals
+  human-friendly intervals. uses matthewmueller/date for human-friendly date parsing.
 
 ## Installation
 
-    $ component install matthewmueller/every
+With node.js:
+
+    npm install every.js
+
+With `component`:
+
+    component install matthewmueller/every
+
+## Examples
+
+```js
+every('5 seconds', fn);
+every('10 minutes', fn);
+every('5 hours', fn);
+every('monday at 5pm', fn);
+```
 
 ## API
 
-   
+### every(time, fn)
+
+Call `fn` every `time`.
+
+Optionally, you may use pass `function(done) { ... }` for asynchronous jobs
 
 ## License
 
