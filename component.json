@@ -2,7 +2,7 @@
   "name": "every",
   "repo": "matthewmueller/every",
   "description": "human-friendly intervals",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "keywords": ["every", "date", "human-friendly"],
   "dependencies": {
     "matthewmueller/date": "*"
