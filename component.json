@@ -1,0 +1,16 @@
+{
+  "name": "every",
+  "repo": "matthewmueller/every",
+  "description": "human-friendly intervals",
+  "version": "0.0.1",
+  "keywords": ["every", "date", "human-friendly"],
+  "dependencies": {
+    "matthewmueller/date": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": [
+    "index.js"
+  ]
+}
