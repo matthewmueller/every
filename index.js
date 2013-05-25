@@ -25,7 +25,8 @@ module.exports = every;
 function every(str, fn) {
   var now = new Date;
   var d = date(str);
-  var until = d - now;
+  var offset = d - now;
+  var until = offset;
 
   setTimeout(run, until);
 
@@ -40,8 +41,16 @@ function every(str, fn) {
   }
 
   function reset() {
+    if (!offset) return;
     now = new Date;
     until = d - now;
-    setTimeout(run, until);
+    if (until < offset) {
+      setTimeout(function() {
+        d = date(str);
+        reset();
+      }, offset);
+    } else {
+      setTimeout(run, until);
+    }
   }
 }
