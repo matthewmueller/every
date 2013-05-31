@@ -44,11 +44,10 @@ function every(str, fn) {
     if (!offset) return;
     now = new Date;
     until = d - now;
-    if (until < offset) {
-      setTimeout(function() {
-        d = date(str);
-        reset();
-      }, offset);
+
+    // if we're already past the time, reset immediately
+    if (until < 0) {
+      run();
     } else {
       setTimeout(run, until);
     }
