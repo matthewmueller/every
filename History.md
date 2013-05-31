@@ -1,4 +1,9 @@
 
+0.0.4 / 2013-05-31
+==================
+
+  * run function immediately if async reset is slower than every(time)
+
 0.0.3 / 2013-05-25
 ==================
 
