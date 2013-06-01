@@ -28,6 +28,10 @@ function every(str, fn) {
   var offset = d - now;
   var until = offset;
 
+  if (0 == until) {
+    throw new Error('did not recognize "' + str + '"');
+  }
+
   setTimeout(run, until);
 
   function run() {
