@@ -1,6 +1,6 @@
 # every
 
-  human-friendly intervals. uses ![date](http://github.com/matthewmueller/date) for human-friendly date parsing.
+  human-friendly intervals. uses [date](http://github.com/matthewmueller/date) for human-friendly date parsing.
 
 ## Installation
 
