@@ -3,9 +3,9 @@
  */
 
 try {
-  var date = require('date');
-} catch(e) {
-  var date = require('date.js');
+  var date = require("date");
+} catch (e) {
+  var date = require("date.js");
 }
 
 /**
@@ -13,6 +13,7 @@ try {
  */
 
 module.exports = every;
+module.exports.clear = clear;
 
 /**
  * Initialize `every`
@@ -22,8 +23,11 @@ module.exports = every;
  * @api public
  */
 
+var timers = {};
+var id = 0;
+
 function every(str, fn) {
-  var now = new Date;
+  var now = new Date();
   var d = date(str);
   var offset = d - now;
   var until = offset;
@@ -32,7 +36,8 @@ function every(str, fn) {
     throw new Error('did not recognize "' + str + '"');
   }
 
-  setTimeout(run, until);
+  let timerId = id++;
+  timers[timerId] = setTimeout(run, until);
 
   function run() {
     d = date(str);
@@ -46,14 +51,15 @@ function every(str, fn) {
 
   function reset() {
     if (!offset) return;
-    now = new Date;
+    now = new Date();
     until = d - now;
 
     // if we're already past the time, reset immediately
     if (until < 0) {
       run();
     } else {
-      setTimeout(run, until);
+      timers[timerId] = setTimeout(run, until);
     }
   }
+  return timerId;
 }
