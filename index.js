@@ -15,6 +15,9 @@ try {
 module.exports = every;
 module.exports.clear = clear;
 
+var timers = {};
+var id = 0;
+
 /**
  * Initialize `every`
  *
@@ -22,9 +25,6 @@ module.exports.clear = clear;
  * @param {Function} fn
  * @api public
  */
-
-var timers = {};
-var id = 0;
 
 function every(str, fn) {
   var now = new Date();
@@ -62,4 +62,9 @@ function every(str, fn) {
     }
   }
   return timerId;
+}
+
+function clear(id) {
+  clearTimeout(timers[id]);
+  delete timers[id];
 }
